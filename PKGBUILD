@@ -1,3 +1,4 @@
+# Old maintainers:
 # Maintainer: Jose Riha <jose1711 gmail com>
 # Contributor: Patrick Jackson <PatrickSJackson gmail com>
 # Contributor: Christoph Vigano <mail@cvigano.de>
@@ -8,7 +9,7 @@ pkgrel=1
 pkgdesc='A simple virtual terminal emulator for X.'
 arch=('i686' 'x86_64' 'armv7h')
 license=('MIT')
-depends=('libxft' 'libxext' 'adobe-source-code-pro-fonts')
+depends=('libxft' 'libxext' 'adobe-source-code-pro-fonts' 'git')
 makedepends=('ncurses')
 url="https://st.suckless.org"
 source=("git://git.suckless.org/st"
@@ -19,6 +20,11 @@ sha256sums=('SKIP'
 provides=("${pkgname}")
 conflicts=("${pkgname}")
 
+#pkgver() {
+#	cd "${_pkgname}"
+#	printf "%s.r%s.%s" "$(awk '/^VERSION =/ {print $3}' config.mk)" \
+#		"$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+#}
 _patches=(
     "https://st.suckless.org/patches/scrollback/st-scrollback-20190331-21367a0.diff"
 )
